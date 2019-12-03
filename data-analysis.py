@@ -91,7 +91,7 @@ other_cats = ['Health Professions', 'Public Administration', 'Education', 'Agric
 cb_dark_blue = (0/255, 107/255, 164/255)
 cb_orange = (255/255, 128/255, 14/255)
 
-fig = plt.figure(figsize=(18, 12))
+fig = plt.figure(figsize=(16, 20))
 
 for sp in range(0,6):
     ax = fig.add_subplot(6,3,(3*sp)+1)
@@ -106,50 +106,47 @@ for sp in range(0,6):
     # add text annotations to plot
     if sp == 0:
         # Annotating using Axes.text(x coordinate, y coordinate, string of text)
-        ax.text(2005, 87, "Men")
-        ax.text(2002, 8, "Women")
+        ax.text(2005, 85, "Women")
+        ax.text(2005, 10, "Men")
     elif sp == 5:
-        ax.text(2005, 62, "Men")
-        ax.text(2001, 35, "Women")
+        ax.text(2005, 87, "Men")
+        ax.text(2005, 7, "Women")
 
-for sp in range(0,6):
-    ax = fig.add_subplot(6,3,(3*sp)+1)
-    ax.plot(women_degrees['Year'], women_degrees[stem_cats[sp]], c=cb_dark_blue, label='Women', linewidth=3)
-    ax.plot(women_degrees['Year'], 100-women_degrees[stem_cats[sp]], c=cb_orange, label='Men', linewidth=3)
+for sp in range(0,5):
+    ax = fig.add_subplot(6,3,(3*sp)+2)
+    ax.plot(women_degrees['Year'], women_degrees[lib_arts_cats[sp]], c=cb_dark_blue, label='Women', linewidth=3)
+    ax.plot(women_degrees['Year'], 100-women_degrees[lib_arts_cats[sp]], c=cb_orange, label='Men', linewidth=3)
     for key,spine in ax.spines.items():
         spine.set_visible(False)
     ax.set_xlim(1968, 2011)
     ax.set_ylim(0,100)
-    ax.set_title(stem_cats[sp])
+    ax.set_title(lib_arts_cats[sp])
     ax.tick_params(bottom="off", top="off", left="off", right="off")
     # add text annotations to plot
     if sp == 0:
         # Annotating using Axes.text(x coordinate, y coordinate, string of text)
-        ax.text(2005, 87, "Men")
-        ax.text(2002, 8, "Women")
-    elif sp == 5:
-        ax.text(2005, 62, "Men")
-        ax.text(2001, 35, "Women")
+        ax.text(2005, 78, "Women")
+        ax.text(2005, 18, "Men")
 
 for sp in range(0,6):
-    ax = fig.add_subplot(6,3,(3*sp)+1)
-    ax.plot(women_degrees['Year'], women_degrees[stem_cats[sp]], c=cb_dark_blue, label='Women', linewidth=3)
-    ax.plot(women_degrees['Year'], 100-women_degrees[stem_cats[sp]], c=cb_orange, label='Men', linewidth=3)
+    ax = fig.add_subplot(6,3,(3*sp)+3)
+    ax.plot(women_degrees['Year'], women_degrees[other_cats[sp]], c=cb_dark_blue, label='Women', linewidth=3)
+    ax.plot(women_degrees['Year'], 100-women_degrees[other_cats[sp]], c=cb_orange, label='Men', linewidth=3)
     for key,spine in ax.spines.items():
         spine.set_visible(False)
     ax.set_xlim(1968, 2011)
     ax.set_ylim(0,100)
-    ax.set_title(stem_cats[sp])
+    ax.set_title(other_cats[sp])
     ax.tick_params(bottom="off", top="off", left="off", right="off")
     # add text annotations to plot
     if sp == 0:
         # Annotating using Axes.text(x coordinate, y coordinate, string of text)
-        ax.text(2005, 87, "Men")
-        ax.text(2002, 8, "Women")
+        ax.text(2005, 90, "Women")
+        ax.text(2005, 5, "Men")
     elif sp == 5:
         ax.text(2005, 62, "Men")
-        ax.text(2001, 35, "Women")
-        
+        ax.text(2005, 30, "Women")
+
 legend = ax.legend()
 legend.remove()
 
